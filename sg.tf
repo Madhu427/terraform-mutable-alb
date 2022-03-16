@@ -1,7 +1,7 @@
 resource "aws_security_group" "public_lb" {
   name        = "${var.ENV}-public-lb"
   description = "for public ALB"
-  vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_id
+  vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
 
   ingress {
     description      = "HTTP Traffic"
@@ -27,7 +27,7 @@ resource "aws_security_group" "public_lb" {
 resource "aws_security_group" "private_lb" {
   name        = "${var.ENV}-private-lb"
   description = "for private ALB"
-  vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_id
+  vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
 
   ingress {
     description      = "HTTP Traffic"
