@@ -11,7 +11,7 @@ resource "aws_lb" "public" {
 }
 
 resource "aws_lb" "private" {
-  name               = "${var.ENV}-private-tf"
+  name               = "${var.ENV}-private-alb"
   internal           = true
   load_balancer_type = "application"
 #  security_groups    = [aws_security_group.lb_sg.id]
