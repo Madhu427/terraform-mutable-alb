@@ -1,5 +1,5 @@
 resource "aws_security_group" "public_lb" {
-  name        = "${var.ENV}-public-lb"
+  name        = "${var.ENV}-public-alb"
   description = "for public ALB"
   vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
 
@@ -16,11 +16,12 @@ resource "aws_security_group" "public_lb" {
     to_port          = 0
     protocol         = "-1"
     cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
 
   }
 
   tags = {
-    Name = "${var.ENV}-public-lb"
+    Name = "${var.ENV}-public-alb"
   }
 }
 
@@ -42,7 +43,7 @@ resource "aws_security_group" "private_lb" {
     to_port          = 0
     protocol         = "-1"
     cidr_blocks      = ["0.0.0.0/0"]
-
+    ipv6_cidr_blocks = ["::/0"]
   }
 
   tags = {

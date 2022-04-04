@@ -19,7 +19,7 @@ resource "aws_lb" "private" {
 
 
   tags = {
-    Environment = "${var.ENV}-private-tf"
+    Environment = "${var.ENV}-private-alb"
   }
 }
 
