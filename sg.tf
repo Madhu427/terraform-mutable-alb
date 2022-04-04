@@ -29,8 +29,7 @@ resource "aws_security_group" "private_lb" {
   name        = "${var.ENV}-private-lb"
   description = "for private ALB"
   vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
-
-  ingress {
+h  ingress {
     description      = "HTTP Traffic"
     from_port        = 80
     to_port          = 80
